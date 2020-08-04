@@ -1,0 +1,454 @@
+
+html body
+{
+background-color: #2F3136;
+height: 100%;
+ padding:0;
+margin:0;
+box-sizing: border-box; 
+font-family: sans-serif;
+}
+/*Custom Scroll Elements*/
+::-webkit-scrollbar-track {
+  background: #111;
+  z-index: 1;
+}
+::-webkit-scrollbar-thumb {
+	background: #333;
+	top: 0%;
+	right: 0%;
+	margin-left: 10px;
+	position: fixed;
+	-webkit-transition: 1s;
+	transition: 1s;
+  border-radius: 28px;
+  z-index: 1;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-image: linear-gradient(120deg, rgb(0, 132, 255),violet);
+	mix-blend-mode: overlay;
+	-webkit-transition: 1s;
+  transition: 1s linear;
+  z-index: 1;
+}
+::-webkit-scrollbar {
+	background: #111;
+	width: 10px;
+	height: 10px;
+	top: 0%;
+	right: 0%;
+	border-radius: 28px;
+	position: fixed;
+	margin-left: 10px;
+}
+#scrollPath
+{
+  position: fixed;
+  top:0;
+  right: 0;
+  width:10px;
+  background: rgba(0,0,0,0.75);
+}
+#progressbar
+{
+  position: fixed;
+  top:0;
+  right: 0;
+  width:10px;
+  height: 100%;
+  background: linear-gradient(to top, #008aff,#00ffe7);
+  animation: col-flux 5s linear infinite;
+  z-index: 1;
+}
+
+@keyframes col-flux
+{
+  0%,100%
+  {
+    filter: hue-rotate(0deg);
+  }
+  50%
+  {
+    filter: hue-rotate(360deg);
+  }
+}
+#progressbar::before
+{
+  content:'';
+  position: absolute;
+  top:0;
+  right: 0;
+  width:100%;
+  height: 100%;
+  background: linear-gradient(to top, #008aff,#00ffe7);
+filter: blur(10px)
+}
+#progressbar::after
+{
+  content:'';
+  position: absolute;
+  top:0;
+  right: 0;
+  width:100%;
+  height: 100%;
+  background: linear-gradient(to top, #008aff,#00ffe7);
+filter: blur(30px)
+}
+h1{
+font-weight: bold;
+color: #ffffff;
+}
+header
+{
+text-align: center;
+}
+footer
+{
+ background-color: rgba(0,0,0,0.75);  
+}
+widgetbot
+{
+ box-shadow: 0px 0px 24px #7289DA;
+}
+
+svg{
+  transform:translate(0%,-75%);
+}
+.parallax {
+  /* The image used */
+  background-image: url("./img/Backdrop.png");
+
+  /* Set a specific height */
+  min-height:25%;
+  height: 25%; 
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-content: center;
+   display: grid;
+    box-sizing: border-box;
+	grid-template-columns:repeat(auto-fit, minmax(300px,1fr)) ;
+	grid-gap:50% 48px;
+	padding: 25em 50%;
+
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #2F3136;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion,button
+{
+  text-shadow: 0px 0px 8px #222, 0 0 25px #111, 0 0 5px #333;
+    color: #99aab5;
+    font-size: 1em;
+    font-weight: bold;
+}
+.active,.accordion:hover,button
+{
+  text-shadow: 0px 0px 24px #7289DA;
+    color: #36393F;
+}
+.active, .accordion:hover {
+  background-color: #7289DA;
+  box-shadow: 0px 0px 24px #7289DA;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #43b581;
+  font-weight: bold;
+  text-shadow: 0px 0px 8px #222, 0 0 25px #111, 0 0 5px #333;
+  float: right;
+  margin-left: 5px;
+    transition:0.5s;
+}
+.TitlePanel{
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 4px;
+    border-left: 4px solid rgba(0, 0, 255, .75);
+ width: 80%;
+	padding: 0px 8px; 
+  transition:0.5s;
+  transform:translate(-50% , 50%);
+ box-shadow: 0px 0px 24px #7289DA;
+ font-weight: bold;
+}
+.DescPanel{
+background-color:  #2F3136;
+width:80%;
+color: #99aab5;
+text-shadow: 0px 0px 8px #222, 0 0 25px #111, 0 0 5px #333;
+border-radius: 4px;
+ box-shadow: 0px 0px 24px #7289DA;
+    border-left: 4px solid rgba(0, 0, 255, .75);
+    padding: 12px 18px;
+}
+.active:after {
+  content: "\2212"; 
+   transition:0.5s;
+  text-shadow: 0px 0px 8px #222, 0 0 25px #111, 0 0 5px #333;
+  color: #f04747;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: #36393f;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.InvPanel{
+    background-color:  #2F3136;
+    align-self:center;
+    height: 25%;
+    width:30em;
+    border-radius: 2px;
+    padding: 20px 18px;
+ }
+ .InvPanel::after{clear: both;}
+.InvPanel h2
+{
+  color: hsl(204, 16%, 65%); 
+  font-size: auto;
+  transform:translate(0%,2em);
+  float:left;
+}
+.InvPanel img{
+    float:left;
+    transform:translate(0%,75%);
+}
+.InvPanel a{
+    margin-top:10%;
+    background-color:  #43b581;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: 12px 18px;
+    font-size: 1em;
+    font-weight: bold;
+    float:right;
+    transform:translate(0%,5em);
+}
+
+#myBtn 
+{
+transition:0.5s;
+
+    font-size:50px;
+    font-weight: 50%;
+    background-color: rgba(0,0,0,0.75);
+    color: #43b581;
+    width:128px;
+    height:128px;
+    border-radius: 50%;
+    border: none;
+}
+#myBtn:hover 
+{
+    cursor: pointer;
+    box-shadow: 0px 0px 24px #7289DA;
+    color: white;
+    background-color: #43b581;
+    transition: 0.4s;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #36393F;
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 28px;
+  width: 80%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 24px #7289DA;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  transform:translate(-50%,75%);
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+    border-top-left-radius:  28px;
+    border-top-right-radius:  28px;
+  padding: 2px 8px;
+  background-color:  #7289DA;
+  color: white;
+}
+
+.modal-body {
+    border-radius: 28px; padding: 2px 16px;
+      align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-footer {
+    border-bottom-left-radius:  28px;
+    border-bottom-right-radius:  28px;
+
+  padding: 2px 8px;
+  background-color: #7289DA;
+  color: white;
+}
+
+.Table {
+    display: grid;
+    box-sizing: border-box;
+	grid-template-columns:repeat(auto-fit, minmax(300px,1fr)) ;
+	grid-gap:12px 48px;
+	padding: 12px 48px;
+
+
+}
+.Table div
+{
+  width: 100%;
+	padding: 0px 8px; 
+	transition:0.5s;
+}
+.Table div:hover
+{
+	/*box-shadow: 4px 4px 8px #222, 0 0 25px #111, 0 0 5px #333;*/
+	transition:0.5s;
+}
+
+.Table a {
+	box-sizing: border-box;
+	display: table;
+	align-items: center;
+	position: relative;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+    width:5vh;
+    height:5vh;
+    border-radius: 50%;
+	background-image:linear-gradient(45deg,rgb(0, 132, 255),#333); 
+	border: 2px solid rgb(0, 132, 255);
+	color: #fff;
+	padding: 16px 18px;
+	transition:0.25s;
+}
+.Table a span {
+	display: inline-block;
+    margin-right: 5px;
+	transition:0.25s;
+}
+.Table a:hover span {
+	display: inline-block;
+    margin-right: 5px;
+	transition:0.25s;
+	animation:bounce 2s linear infinite;
+}
+
+.Table a:hover {
+box-shadow: 4px 4px 8px #222, 0 0 25px #111, 0 0 5px #333;
+transition:0.25s;
+}
+	@keyframes bounce
+	{
+		0%{
+			transform:translate(-4px, 0px);	
+		}
+		50%{
+			transform:translate(4px, 0px);	
+		}
+        100%{
+			transform:translate(-4px, 0px);	
+		}
+	}
+.Table .TitleCard {
+    width: 100%;
+    padding: 16px;
+}
+@media screen and (max-width: 640px) {
+	.Table{
+		width: 100%;
+		margin-right: 0%;
+		padding: 0;
+		grid-template-columns:repeat(auto-fit, minmax(10px,1fr)) ;
+		grid-gap: 16px 16px;
+overflow: hidden;
+	}
+	.Table div
+	{
+		width: 100%;
+		padding: 0px 0px; 
+		transition:0.5s;
+		animation: ScaleUp .25s linear;
+	}
+	.Table div a
+	{
+		animation: ScaleUp .25s linear;
+		animation-delay: 1s;
+  }
+  .InvPanel{
+    background-color:  #2F3136;
+    align-self:center;
+    height: 25%;
+    width:30em;
+    border-radius: 2px;
+    padding: 20px 18px;
+ }
+}
+
+@keyframes ScaleUp
+{
+	0%{transform:scale(0);}
+	100%{transform:scale(1);}
+}
